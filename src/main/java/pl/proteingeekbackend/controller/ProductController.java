@@ -1,9 +1,7 @@
 package pl.proteingeekbackend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.proteingeekbackend.model.Product;
 import pl.proteingeekbackend.service.ProductService;
 
@@ -17,13 +15,17 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<Product> getProducts(){
-        return ProductService.getProducts();
+        return productService.getProducts();
     }
 
     @GetMapping("/products/{id}")
-    public Product getProductById(){
-        return ProductService.getProductById();
+    public Product getProductById(@PathVariable double id){
+        return productService.getProductById(id);
     }
 
+    @PostMapping("/products")
+    public Product getProductById(@RequestBody Product product){
+        return productService.createProduct(product);
+    }
 
 }

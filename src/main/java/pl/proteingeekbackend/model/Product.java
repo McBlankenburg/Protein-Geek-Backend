@@ -2,7 +2,7 @@ package pl.proteingeekbackend.model;
 
 public class Product {
 
-    private int id;
+    private double id;
     private String name;
     private String brand;
     private int Volume;
